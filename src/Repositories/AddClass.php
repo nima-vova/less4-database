@@ -18,13 +18,13 @@ class AddClass
         $username = "root";
         $password = "julia";
         $dbname = "gh_less4";
-        $conn = new \MySQLi($servername, $username, $password);
+        $conn = new \MySQLi($servername, $username, $password, $dbname);
 // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql="INSERT INTO Univer ('nameUniver','cityUniver','siteUniver') VALUES ('ЧНУ','б.Хмельницбкого 100','www.cnu.ua')";
+     /* $sql="INSERT INTO Univer (nameUniver,cityUniver,siteUniver) VALUES ('ЧНУ','Черкаси','www.cnu.ua')";
 
         if ($conn->query($sql) === TRUE) {
             echo "Table Univer INSERT  successfully<br>";
@@ -32,9 +32,20 @@ class AddClass
     echo "Error Univer INSERT table: " . $conn->error;
        }
 
+*/
 
 
-         $conn->close();
+        $sql="INSERT INTO Department (nameDepartmen,DepartUniverId) VALUES ('Кафедра фізики','1')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "Table Department INSERT  successfully<br>";
+        } else {
+            echo "Error Univer INSERT table: " . $conn->error;
+        }
+
+
+
+        $conn->close();
 
 
     }

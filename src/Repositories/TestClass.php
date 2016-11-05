@@ -22,7 +22,7 @@ class TestClass
      }
 
 
-     $sql ='CREATE Database gh_less4';
+     $sql ='CREATE Database gh_less4 CHARACTER SET utf8 COLLATE utf8_general_ci';
 
      if ($conn->query($sql) === TRUE) {
          echo "DATABASE  gh_less4 successfully<br>";
@@ -45,7 +45,7 @@ class TestClass
 UniverId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 nameUniver VARCHAR(30) NOT NULL,
 cityUniver VARCHAR(30) NOT NULL,
-siteUniver VARCHAR(50))";
+siteUniver VARCHAR(50)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
 
 
 
