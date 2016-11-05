@@ -1,0 +1,25 @@
+{
+    "name": "nima/less4-database",
+    "description": "less4 geekhub",
+    "authors": [
+        {
+            "name": "Vladimir Nimchyn",
+            "email": "nima.vova@gmail.com"
+        }
+    ],
+     "autoload": {
+        "psr-4": {
+            "Controllers\\": "src/Controllers",
+            "Repositories\\": "src/Repositories",
+            "Views\\": "src/Views"
+        }
+    },
+    "require": {
+
+ "colorium/routing":"dev-master"
+
+}
+        
+    }
+
+

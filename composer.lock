@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "4193be3c37f89367976cd56ffd89c87e",
+    "content-hash": "28e590f6a6f46f55cd7eab3a6545f528",
+    "packages": [
+        {
+            "name": "colorium/routing",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/colorium/routing.git",
+                "reference": "6b6b96321f581164e4f8fb639fd8920d68fbee21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/colorium/routing/zipball/6b6b96321f581164e4f8fb639fd8920d68fbee21",
+                "reference": "6b6b96321f581164e4f8fb639fd8920d68fbee21",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Colorium\\Routing\\": "/src/Colorium/Routing/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aymeric Assier",
+                    "email": "aymeric.assier@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Colorium Routing Component",
+            "homepage": "https://github.com/colorium/routing",
+            "time": "2016-02-18 08:58:28"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "colorium/routing": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
