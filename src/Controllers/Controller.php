@@ -18,7 +18,9 @@ public function createBD()
     public function addBD()
     {
         //echo "hello Controller";
+
         $this->repositoryAdd = new  AddClass();
+        $this->repositoryAdd->addDataAllTables();
 
     }
 

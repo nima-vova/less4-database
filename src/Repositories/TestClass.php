@@ -96,8 +96,7 @@ studentDepartmentId INT(6) REFERENCES Department(DepartmentId)  ON DELETE CASCAD
 TeacherId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 firstNameTeacher VARCHAR(30) NOT NULL,
 lastNameTeacher VARCHAR(30) NOT NULL,
-teacherDepartmentId INT(6) REFERENCES Department(DepartmentId)  ON DELETE CASCADE,
-teacherStudents VARCHAR(30) NOT NULL
+teacherDepartmentId INT(6) REFERENCES Department(DepartmentId)  ON DELETE CASCADE
 )";
 
      if ($conn->query($sql) === TRUE) {
