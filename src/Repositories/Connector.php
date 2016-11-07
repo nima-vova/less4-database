@@ -2,7 +2,7 @@
 namespace Repositories;
 class Connector
 {
-    private $pdo;
+    public $conn;
     /**
      * StudentsRepository constructor.
      * Initialize the database connection with sql server via given credentials
@@ -10,16 +10,21 @@ class Connector
      * @param $user
      * @param $pass
      */
-    public function __construct($databasename, $user, $pass)
+
+    public function __construct()
     {
-        $this->pdo = new \PDO('mysql:host=localhost;dbname=' . $databasename . ';charset=UTF8', $user, $pass);
-        if (!$this->pdo) {
+        $servername = "localhost";
+        $username = "root";
+        $password = "julia";
+        $dbname = "gh_less4";
+        $this->conn = new \MySQLi($servername, $username, $password, $dbname);
+        if (!$this->conn) {
             return false;
             //throw new Exception('Error connecting to the database');
         }
     }
-    public function getPdo()
+    public function getconn()
     {
-        return $this->pdo;
+        return $this->conn;
     }
 }

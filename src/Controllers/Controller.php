@@ -8,7 +8,7 @@ use Repositories\AddClass;
 use Repositories\SelectClass;
 use Repositories\SelectClassCheng;
 use Repositories\SelectClassDelUniver;
-
+use Repositories\SelectClassCafedr;
 
 class Controller
 {
@@ -18,6 +18,9 @@ public $repositorySelectUnivers;
 public $repositorySelectUniversCheng;
 public $repositoryDelUniver;
 public $repositoryaddOneUniver;
+public $repositorySelecCafedr;
+public $repositorySelecStud;
+public $repositorySelecHomeWork;
 
 public function createBD()
     {
@@ -73,6 +76,32 @@ public function createBD()
 
 
         // echo "gfgfgf";
+
+    }
+
+    public function funcFrontSelecCafedr()
+    {
+        $this->repositorySelecCafedr = new  SelectClass;
+        $this->repositorySelecCafedr->funcSelectCafedr();
+
+
+    }
+
+    public function funcFrontSelecStud()
+    {
+        $this->repositorySelecStud = new  SelectClass;
+        $this->repositorySelecStud->funcSelectStudent();
+
+
+
+
+    }
+    public function funcFrontSeleсHomeWork()
+    {
+        $this->repositorySelecHomeWork = new  SelectClass;
+        $this->repositorySelecHomeWork->funcSelectHomeWork();
+
+
 
 
     }

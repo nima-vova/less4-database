@@ -1,36 +1,10 @@
 <?php
 include "./vendor/autoload.php";
-/*
-$controllerName = isset($_GET['controller']) ;
-$controllerName = ucfirst($controllerName) . 'Controller';
-$controllerName = 'Controllers\\' . $controllerName;
 
-$controller = new $controllerName($connector);
-$actionName = isset($_GET['action']) ? $_GET['action'] : 'add';
-$actionName = $actionName . 'Action';
-$response = $controller->$actionName();
-echo $response;
-
-
-*/
 
 
 use Colorium\Routing\Router;
 
-
-
-//$controllerName = 'Controllers\\' . Controller;
-//$controller = new Controller();
-
-
-
-  /* echo "<a href='http://less4-database.com/test/createdb.php '>создать структура БД</a><br>";
-   echo "<a >заполнить БД данными</a><br>";
-   echo "<a >университеты</a><br>";
-   echo "<a >кафедры</a><br>";
-   echo "<a >студенты</a><br>";
-   echo "<a >список дз</a><br>";
-*/
 
 
 
@@ -175,5 +149,96 @@ if (@$_REQUEST['addOne']) {
     $response = $controller->$actionName();
     echo $response;
 
+
+}
+
+
+
+
+echo "<a href='?SelecCafedr'>кафедры</a><br>";
+if (isset($_GET['SelecCafedr'])) {
+
+    $routerSelecCafedr = new Router;
+    $routerSelecCafedr->add('GET /controller/:name', function ($name) {
+        echo 'Hello', $name, ' !';
+    });
+
+// search route
+    $routeSelecCafedr= $routerSelecCafedr->find('GET /controller/funcFrontSelecCafedr');
+
+// if route not found
+    if (!$routeSelecCafedr) {
+        echo "404 error";
+    }
+    //echo $route->params['createBD'];
+
+    // echo $route->uri;
+    $controllerNameSelecCafedr = isset($_GET['controller']);
+    $controllerNameSelecCafedr = ucfirst($controllerNameSelecCafedr) . 'Controller';
+    $controllerNameSelecCafedr = 'Controllers\\' . $controllerNameSelecCafedr;
+
+    $conntrollerAddSelecCafedr = new $controllerNameSelecCafedr();
+    $funcFrontSelecCafedr = $routeSelecCafedr->params['name'];
+    $conntrollerAddSelecCafedr->funcFrontSelecCafedr();
+
+}
+
+
+
+
+echo "<a href='?SeleсStud'>студенты</a><br>";
+if (isset($_GET['SeleсStud'])) {
+
+    $routerSelecCafedr = new Router;
+    $routerSelecCafedr->add('GET /controller/:name', function ($name) {
+        echo 'Hello', $name, ' !';
+    });
+
+// search route
+    $routeSelecCafedr= $routerSelecCafedr->find('GET /controller/funcFrontSelecStud');
+
+// if route not found
+    if (!$routeSelecCafedr) {
+        echo "404 error";
+    }
+    //echo $route->params['createBD'];
+
+    // echo $route->uri;
+    $controllerNameSelecCafedr = isset($_GET['controller']);
+    $controllerNameSelecCafedr = ucfirst($controllerNameSelecCafedr) . 'Controller';
+    $controllerNameSelecCafedr = 'Controllers\\' . $controllerNameSelecCafedr;
+
+    $conntrollerAddSelecCafedr = new $controllerNameSelecCafedr();
+    $funcFrontSelecStud = $routeSelecCafedr->params['name'];
+    $conntrollerAddSelecCafedr->funcFrontSelecStud();
+
+}
+
+
+echo "<a href='?SeleсHomeWork'>список дз</a><br>";
+if (isset($_GET['SeleсHomeWork'])) {
+
+    $routerSelecCafedr = new Router;
+    $routerSelecCafedr->add('GET /controller/:name', function ($name) {
+        echo 'Hello', $name, ' !';
+    });
+
+// search route
+    $routeSelecCafedr= $routerSelecCafedr->find('GET /controller/funcFrontSeleсHomeWork');
+
+// if route not found
+    if (!$routeSelecCafedr) {
+        echo "404 error";
+    }
+    //echo $route->params['createBD'];
+
+    // echo $route->uri;
+    $controllerNameSelecCafedr = isset($_GET['controller']);
+    $controllerNameSelecCafedr = ucfirst($controllerNameSelecCafedr) . 'Controller';
+    $controllerNameSelecCafedr = 'Controllers\\' . $controllerNameSelecCafedr;
+
+    $conntrollerAddSelecCafedr = new $controllerNameSelecCafedr();
+    $funcFrontSeleсHomeWork = $routeSelecCafedr->params['name'];
+    $conntrollerAddSelecCafedr->funcFrontSeleсHomeWork();
 
 }

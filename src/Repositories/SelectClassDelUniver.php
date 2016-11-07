@@ -13,11 +13,8 @@ class SelectClassDelUniver
     public  function __construct()
     {
 
-
-        $servername = "localhost";
-        $username = "root";
-        $password = "julia";
-        $dbname = "gh_less4";
+        $this->useConn= new Connector;
+        $this->useConn->getconn();
 
         $conn = new \MySQLi($servername, $username, $password, $dbname);
 // Check connection

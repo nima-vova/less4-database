@@ -1,12 +1,13 @@
 <?php
 namespace Repositories;
+use Repositories\Connector;
 
 
 
 class SelectClass
 {
 
-
+    public $useConn;
 
 
 
@@ -14,15 +15,8 @@ class SelectClass
     {
 
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "julia";
-        $dbname = "gh_less4";
-        $conn = new \MySQLi($servername, $username, $password, $dbname);
-// Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        $this->useConn= new Connector;
+        $this->useConn->getconn();
 
 
 
@@ -31,7 +25,7 @@ class SelectClass
 
 
 
-            $result = $conn->query($sql);
+            $result = $this->useConn->getconn()->query($sql);
            // $row = $result->fetch_array(MYSQLI_NUM);
            // echo  $row[2];
        echo "<table>";
@@ -53,7 +47,44 @@ class SelectClass
         echo "</table>";
 
 
-        $conn->close();
+        $this->useConn->getconn()->close();
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+    public  function funcSelectCafedr()
+    {
+
+
+        $this->useConn= new Connector;
+        $this->useConn->getconn();
+
+
+
+
+        $sql = "SELECT * FROM Department";
+
+
+
+        $result = $this->useConn->getconn()->query($sql);
+        // $row = $result->fetch_array(MYSQLI_NUM);
+        // echo  $row[2];
+
+        while ($row = $result->fetch_row()) {
+
+            echo $row[0], $row[1], $row[2] . "<br>";
+
+        }
+        $this->useConn->getconn()->close();
 
 
 
@@ -70,6 +101,78 @@ class SelectClass
 
 
 
+    public  function funcSelectStudent()
+    {
 
 
-}
+        $this->useConn= new Connector;
+        $this->useConn->getconn();
+
+
+
+        $sql = "SELECT * FROM Student";
+
+
+
+        $result = $this->useConn->getconn()->query($sql);
+        // $row = $result->fetch_array(MYSQLI_NUM);
+        // echo  $row[2];
+
+        while ($row = $result->fetch_row()) {
+
+            echo $row[0], $row[1], $row[2] , $row[3],  $row[4], $row[5] . "<br>";
+
+        }
+        $this->useConn->getconn()->close();
+
+
+
+
+
+    }
+
+
+    public  function funcSelectHomeWork()
+    {
+        $this->useConn= new Connector;
+         $this->useConn->getconn();
+
+        /*$servername = "localhost";
+        $username = "root";
+        $password = "julia";
+        $dbname = "gh_less4";
+
+
+       $conn = new \MySQLi($servername, $username, $password, $dbname);
+// Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        */
+
+
+
+        $sql = "SELECT * FROM HomeWork";
+
+
+
+        $result =$this->useConn->getconn()->query($sql);
+        // $row = $result->fetch_array(MYSQLI_NUM);
+        // echo  $row[2];
+
+        while ($row = $result->fetch_row()) {
+
+            echo $row[0], $row[1], $row[2]  . "<br>";
+
+        }
+        $this->useConn->getconn()->close();
+
+
+
+
+
+    }
+
+
+
+    }

@@ -1,12 +1,12 @@
 <?php
 namespace Repositories;
 
-
+use Repositories\Connector;
 
 class TestClass
 {
 
-
+    public $useConn;
 
  public function __construct()
     {
