@@ -1,141 +1,128 @@
 <?php
+
 namespace Repositories;
-use Repositories\Connector;
-
-
 
 class SelectClass
 {
-
     public $useConn;
 
-
-
-    public  function funcSelectUniver()
+    public function funcSelectUniver()
     {
-
-
-        $this->useConn= new Connector;
+        $this->useConn = new Connector();
         $this->useConn->getconn();
 
+        $sql = 'SELECT * FROM Univer';
 
-
-
-        $sql = "SELECT * FROM Univer";
-
-
-
-            $result = $this->useConn->getconn()->query($sql);
+        $result = $this->useConn->getconn()->query($sql);
            // $row = $result->fetch_array(MYSQLI_NUM);
            // echo  $row[2];
-       echo "<table>";
+       echo '<table>';
         while ($row = $result->fetch_row()) {
-
-          echo "<form  method='post' ><tr><td><input maxlength=\"5\" size=\"5\" value='$row[0]' name='idUniv'></td><td><input maxlength=\"30\" size=\"30\" value=\"$row[1] \" name='nameUniv'></td>
+            echo "<form  method='get' action='index.php' ><tr><td><input maxlength=\"5\" size=\"5\" value='$row[0]' name='idUniv'></td><td><input maxlength=\"30\" size=\"30\" value=\"$row[1] \" name='nameUniv'></td>
                     <td><input maxlength=\"30\" size=\"30\" value=\"$row[2] \" name='nameCity'></td>
                     <td><input maxlength=\"30\" size=\"30\" value=\"$row[3] \" name='nameSite'></td>     
-                    <td><input type=\"submit\" value='редагувати' name='cheng'></td>
-                    <td><input type='submit' value='видалити' name='del'></td></tr></form> "  ;
+                    <td><input type=\"submit\" value='редагувати' name='chengUniver'></td>
+                    <td><input type='submit' value='видалити' name='chengUniver'></td></tr></form> ";
             //echo $row[0], $row[1], $row[2], $row[3]  ."<br>";
-
         }
-        echo "<form  method='post' ><tr><td></td><td><input maxlength=\"30\" size=\"30\" value=\" \"name='nameUniv'></td>
+        echo '</table>';
+        echo '<table>';
+        echo "<form  method='get' action='index.php' ><tr>
+                    <td><input maxlength='5' size='5' value='null' name='idUniv'></td>
+                    <td></td><td><input maxlength=\"30\" size=\"30\" value=\" \"name='nameUniv'></td>
                     <td><input maxlength=\"30\" size=\"30\" value=\" \" name='nameCity'></td>
                     <td><input maxlength=\"30\" size=\"30\" value=\" \"name='nameSite'></td>     
-                    <td><input type='submit' value='додати запис' name='addOne'></td></tr></form>>";
-                    
-        echo "</table>";
+                    <td><input type='submit' value='додати запис' name='chengUniver'></td></tr></form>>";
 
+        echo '</table>';
 
         $this->useConn->getconn()->close();
-
-
-
-
-
-
-
-
-
-
-
-
     }
-    public  function funcSelectCafedr()
+    public function funcSelectCafedr()
     {
-
-
-        $this->useConn= new Connector;
+        $this->useConn = new Connector();
         $this->useConn->getconn();
 
-
-
-
-        $sql = "SELECT * FROM Department";
-
-
+        $sql = 'SELECT * FROM Department';
 
         $result = $this->useConn->getconn()->query($sql);
         // $row = $result->fetch_array(MYSQLI_NUM);
         // echo  $row[2];
 
+
         while ($row = $result->fetch_row()) {
-
-            echo $row[0], $row[1], $row[2] . "<br>";
-
+            echo "<form  method='get' action='index.php' ><tr><td><input maxlength=\"5\" size=\"5\" value='$row[0]' name='DepartmentId'></td><td><input maxlength=\"30\" size=\"30\" value=\"$row[1] \" name='nameDepartmen'></td>
+                    <td><input maxlength=\"30\" size=\"30\" value=\"$row[2] \" name='DepartUniverId'></td>                    
+                    <td><input type=\"submit\" value='редагувати' name='chengDepart'></td>
+                    <td><input type='submit' value='видалити' name='chengDepart'></td></tr></form> ";
+            //echo $row[0], $row[1], $row[2], $row[3]  ."<br>";
         }
+        echo '</table>';
+        echo '<table>';
+        echo "<form  method='get' action='index.php' ><tr>
+                    <td><input maxlength='5' size='5' value='null' name='DepartmentId'></td>
+                    <td></td><td><input maxlength=\"30\" size=\"30\" value=\" \"name='nameDepartmen'></td>
+                    <td><input maxlength=\"30\" size=\"30\" value=\" \" name='DepartUniverId'></td>                      
+                    <td><input type='submit' value='додати запис' name='chengDepart'></td></tr></form>>";
+
+        echo '</table>';
+
+
+
+        /* while ($row = $result->fetch_row()) {
+            echo $row[0], $row[1], $row[2].'<br>';
+        }*/
         $this->useConn->getconn()->close();
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
-
-
-    public  function funcSelectStudent()
+    public function funcSelectStudent()
     {
-
-
-        $this->useConn= new Connector;
+        $this->useConn = new Connector();
         $this->useConn->getconn();
 
+        $sql = 'SELECT * FROM Student';
 
-
-        $sql = "SELECT * FROM Student";
-
-
+        //$sql = 'SELECT * FROM Department';
 
         $result = $this->useConn->getconn()->query($sql);
         // $row = $result->fetch_array(MYSQLI_NUM);
         // echo  $row[2];
 
+
+
         while ($row = $result->fetch_row()) {
-
-            echo $row[0], $row[1], $row[2] , $row[3],  $row[4], $row[5] . "<br>";
-
+            echo "<form  method='get' action='index.php' ><tr><td><input maxlength=\"5\" size=\"5\" value='$row[0]' name='StudentId'></td><td><input maxlength=\"30\" size=\"30\" value=\"$row[1] \" name='firstNameStudent'></td>
+                    <td><input maxlength=\"30\" size=\"30\" value=\"$row[2] \" name='lastNameStudent'></td>
+                    <td><input maxlength='30' size='30' value='$row[3]' name='emailStudent'></td>   
+                    <td><input maxlength='30' size='30' value='$row[4]' name='telStudents'></td>
+                    <td><input maxlength='30' size='30' value='$row[5]' name='studentDepartmentId'></td>                 
+                    <td><input type=\"submit\" value='редагувати' name='chengStudent'></td>
+                    <td><input type='submit' value='видалити' name='chengStudent'></td></tr></form> ";
+            //echo $row[0], $row[1], $row[2], $row[3]  ."<br>";
         }
+        echo '</table>';
+        echo '<table>';
+        echo "<form  method='get' action='index.php' ><tr>
+                    <td><input maxlength='5' size='5' value='null' name='StudentId'></td>
+                    <td></td><td><input maxlength=\"30\" size=\"30\" value=\" \"name='firstNameStudent'></td>
+                    <td><input maxlength=\"30\" size=\"30\" value=\" \" name='lastNameStudent'></td>
+                    <td></td><td><input maxlength=\"30\" size=\"30\" value=\" \"name='emailStudent'></td>
+                    <td><input maxlength=\"30\" size=\"30\" value=\" \" name='telStudents'></td>
+                    <td><input maxlength=\"30\" size=\"30\" value=\" \" name='studentDepartmentId'></td>                                                  
+                    <td><input type='submit' value='додати запис' name='chengStudent'></td></tr></form>>";
+
+        echo '</table>';
+
         $this->useConn->getconn()->close();
-
-
 
 
 
     }
 
-
-    public  function funcSelectHomeWork()
+    public function funcSelectHomeWork()
     {
-        $this->useConn= new Connector;
-         $this->useConn->getconn();
+        $this->useConn = new Connector();
+        $this->useConn->getconn();
 
         /*$servername = "localhost";
         $username = "root";
@@ -150,29 +137,15 @@ class SelectClass
         }
         */
 
+        $sql = 'SELECT * FROM HomeWork';
 
-
-        $sql = "SELECT * FROM HomeWork";
-
-
-
-        $result =$this->useConn->getconn()->query($sql);
+        $result = $this->useConn->getconn()->query($sql);
         // $row = $result->fetch_array(MYSQLI_NUM);
         // echo  $row[2];
 
         while ($row = $result->fetch_row()) {
-
-            echo $row[0], $row[1], $row[2]  . "<br>";
-
+            echo $row[0], $row[1], $row[2].'<br>';
         }
         $this->useConn->getconn()->close();
-
-
-
-
-
     }
-
-
-
-    }
+}
