@@ -5,15 +5,16 @@ namespace Repositories;
 class FindStudentOfUniver
 {
     public $useConn;
-    public function __construct()
+
+
+
+    public function findResultStudensOfUniver($firstNameStudentFind, $hero)
     {
         $this->useConn= new Connector();
+        echo $firstNameStudentFind;
 
-       $sql = 'SELECT * FROM Student WHERE  studentDepartmentId in (
-          SELECT DepartmentId FROM Department WHERE DepartUniverId=\'1\') AND firstNameStudent REGEXP  \'(.*)тр(.*)\'';
-
-        /*$sql = 'SELECT * FROM Student WHERE  studentDepartmentId in (
-          SELECT DepartmentId FROM Department WHERE DepartUniverId=\'1\')';*/
+       $sql = "SELECT * FROM Student WHERE  studentDepartmentId in (
+          SELECT DepartmentId FROM Department WHERE DepartUniverId='$hero') AND firstNameStudent REGEXP  '(.*)$firstNameStudentFind(.*)'";
 
         $result = $this->useConn->getconn()->query($sql);
 

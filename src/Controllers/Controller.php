@@ -10,6 +10,7 @@ use Repositories\SelectClassCheng;
 use Repositories\SelectClassChengCafedr;
 use Repositories\SelectClassChengHomeWork;
 use Repositories\FindStudentOfUniver;
+use Repositories\ClassStartSelectStudentOfUniver;
 
 class Controller
 {
@@ -24,6 +25,7 @@ class Controller
     public $repositorySelecHomeWork;
     public $repositoryChengHomeWork;
     public $repositoryFindStudent;
+    public $repositorySelectFindInput;
 
     public function createBD()
     {
@@ -113,7 +115,18 @@ class Controller
     public function FindStudent()
     {
 
-        $this->repositoryFindStudent = new  FindStudentOfUniver();
+       $this->repositoryFindStudent = new  ClassStartSelectStudentOfUniver();
+        //$this->repositoryFindStudent->findResultStudensOfUniver();
+
+
+    }
+
+    public function selectFindInput()
+    {
+
+
+        $this->repositorySelectFindInput = new  FindStudentOfUniver();
+        $this->repositorySelectFindInput->findResultStudensOfUniver($_GET['firstNameStudentFind'], $_GET['hero'] );
 
 
     }
