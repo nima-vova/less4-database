@@ -104,7 +104,6 @@ class Controller
     }
     public function chengHomeWork()
     {
-
         $this->repositoryChengHomeWork = new  SelectClassChengHomeWork($_GET['HomeWorkId'], $_GET['nameHomeWork'], $_GET['HomeWorkDisciplineId'],
              $_GET['chengHomeWork']);
 
@@ -114,20 +113,13 @@ class Controller
 
     public function FindStudent()
     {
-
-       $this->repositoryFindStudent = new  ClassStartSelectStudentOfUniver();
+        $this->repositoryFindStudent = new  ClassStartSelectStudentOfUniver();
         //$this->repositoryFindStudent->findResultStudensOfUniver();
-
-
     }
 
     public function selectFindInput()
     {
-
-
         $this->repositorySelectFindInput = new  FindStudentOfUniver();
-        $this->repositorySelectFindInput->findResultStudensOfUniver($_GET['firstNameStudentFind'], $_GET['hero'] );
-
-
+        $this->repositorySelectFindInput->findResultStudensOfUniver($_GET['firstNameStudentFind'], $_GET['hero']);
     }
 }

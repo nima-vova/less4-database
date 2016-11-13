@@ -34,7 +34,6 @@ class SelectClass
                     <td><input type='submit' value='додати запис' name='chengUniver'></td></tr></form>>";
 
         echo '</table>';
-
     }
     public function funcSelectCafedr()
     {
@@ -46,7 +45,6 @@ class SelectClass
         $result = $this->useConn->getconn()->query($sql);
         // $row = $result->fetch_array(MYSQLI_NUM);
         // echo  $row[2];
-
 
         while ($row = $result->fetch()) {
             echo "<form  method='get' action='index.php' ><tr><td><input maxlength=\"5\" size=\"5\" value='$row[0]' name='DepartmentId'></td><td><input maxlength=\"30\" size=\"30\" value=\"$row[1] \" name='nameDepartmen'></td>
@@ -64,8 +62,6 @@ class SelectClass
                     <td><input type='submit' value='додати запис' name='chengDepart'></td></tr></form>>";
 
         echo '</table>';
-
-
 
         /* while ($row = $result->fetch_row()) {
             echo $row[0], $row[1], $row[2].'<br>';
@@ -85,8 +81,6 @@ class SelectClass
         $result = $this->useConn->getconn()->query($sql);
         // $row = $result->fetch_array(MYSQLI_NUM);
         // echo  $row[2];
-
-
 
         while ($row = $result->fetch()) {
             echo "<form  method='get' action='index.php' ><tr><td><input maxlength=\"5\" size=\"5\" value='$row[0]' name='StudentId'></td><td><input maxlength=\"30\" size=\"30\" value=\"$row[1] \" name='firstNameStudent'></td>
@@ -112,9 +106,6 @@ class SelectClass
         echo '</table>';
 
        // $this->useConn->getconn()->close();
-
-
-
     }
 
     public function funcSelectHomeWork()
@@ -139,28 +130,25 @@ class SelectClass
 
         $result = $this->useConn->getconn()->query($sql);
 
-
         //while ($row = $result->fetch()) {
           //  echo $row[0], $row[1], $row[2].'<br>';
         //}
        // $this->useConn->getconn()->close();
         while ($row = $result->fetch()) {
-        echo "<form  method='get' action='index.php' ><tr><td><input maxlength=\"5\" size=\"5\" value='$row[0]' name='HomeWorkId'></td><td><input maxlength=\"30\" size=\"30\" value=\"$row[1] \" name='nameHomeWork'></td>
+            echo "<form  method='get' action='index.php' ><tr><td><input maxlength=\"5\" size=\"5\" value='$row[0]' name='HomeWorkId'></td><td><input maxlength=\"30\" size=\"30\" value=\"$row[1] \" name='nameHomeWork'></td>
                     <td><input maxlength=\"30\" size=\"30\" value=\"$row[2] \" name='HomeWorkDisciplineId'></td> 
                                        
                     <td><input type=\"submit\" value='редагувати' name='chengHomeWork'></td>
                     <td><input type='submit' value='видалити' name='chengHomeWork'></td></tr></form> ";
         //echo $row[0], $row[1], $row[2], $row[3]  ."<br>";
-    }
-echo '</table>';
-echo '<table>';
-echo "<form  method='get' action='index.php' ><tr>
+        }
+        echo '</table>';
+        echo '<table>';
+        echo "<form  method='get' action='index.php' ><tr>
                     <td><input maxlength='5' size='5' value='null' name='HomeWorkId'></td>
                     <td></td><td><input maxlength=\"30\" size=\"30\" value=\" \"name='nameHomeWork'></td>
                     <td><input maxlength=\"30\" size=\"30\" value=\" \" name='HomeWorkDisciplineId'></td>
                     
                     <td><input type='submit' value='додати запис' name='chengHomeWork'></td></tr></form>>";
-
-
     }
 }

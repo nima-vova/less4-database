@@ -6,14 +6,12 @@ class FindStudentOfUniver
 {
     public $useConn;
 
-
-
     public function findResultStudensOfUniver($firstNameStudentFind, $hero)
     {
-        $this->useConn= new Connector();
+        $this->useConn = new Connector();
         echo $firstNameStudentFind;
 
-       $sql = "SELECT * FROM Student WHERE  studentDepartmentId in (
+        $sql = "SELECT * FROM Student WHERE  studentDepartmentId in (
           SELECT DepartmentId FROM Department WHERE DepartUniverId='$hero') AND firstNameStudent REGEXP  '(.*)$firstNameStudentFind(.*)'";
 
         $result = $this->useConn->getconn()->query($sql);
@@ -27,7 +25,5 @@ class FindStudentOfUniver
                     </tr></form> ";
             //echo $row[0], $row[1], $row[2], $row[3]  ."<br>";
         }
-
-
     }
 }

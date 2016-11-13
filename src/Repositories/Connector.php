@@ -15,17 +15,15 @@ class Connector
      */
     public function __construct()
     {
-       // $servername = 'localhost';
+        // $servername = 'localhost';
         $username = 'root';
         $password = 'julia';
         $dbname = 'gh_less4';
 
-
-        $this->conn= new \PDO('mysql:host=localhost;',$username, $password);
-        if ($this->conn->prepare('USE gh_less4')->execute()){
-            $this->conn = new \PDO('mysql:host=localhost;dbname=' . $dbname , $username, $password);
+        $this->conn = new \PDO('mysql:host=localhost;', $username, $password);
+        if ($this->conn->prepare('USE gh_less4')->execute()) {
+            $this->conn = new \PDO('mysql:host=localhost;dbname='.$dbname, $username, $password);
         }
-
 
         $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         if (!$this->conn) {

@@ -3,12 +3,10 @@
  * Created by PhpStorm.
  * User: nima
  * Date: 13.11.16
- * Time: 22:15
+ * Time: 22:15.
  */
 
 namespace Repositories;
-
-
 
 class ClassStartSelectStudentOfUniver
 {
@@ -16,8 +14,7 @@ class ClassStartSelectStudentOfUniver
 
     public function __construct()
     {
-
-        $this->useConn= new Connector();
+        $this->useConn = new Connector();
 
         $sql = 'SELECT * FROM Univer';
 
@@ -31,12 +28,7 @@ class ClassStartSelectStudentOfUniver
         while ($row = $result->fetch()) {
             echo "       
     <option value=\"$row[0]\">$row[1]</option>";
-
         }
         echo"</select> <input type='submit' value='найти' name='selectFindInput'>";
-
-
-
-
     }
 }
