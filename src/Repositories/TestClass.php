@@ -9,107 +9,78 @@ class TestClass
     public function __construct()
     {
 
+       // echo phpinfo();
+       // $this->useConn = new Connector();
 
-        $this->useConn = new Connector();
         //$conn = new \MySQLi($servername, $username, $password);
 // Check connection
-     if ($this->useConn->getconn()->connect_error) {
-         die('Connection failed: '.$this->useConn->getconn()->connect_error);
-     }
+        //$this->useConn = new \PDO('mysql:host=localhost;','root', 'julia');
+        //$this->useConn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
-        $sql = 'CREATE Database gh_less4 CHARACTER SET utf8 COLLATE utf8_general_ci';
+        $this->useConn = new Connector();
 
-        if ($this->useConn->getconn()->query($sql) === true) {
-            echo 'DATABASE  gh_less4 successfully<br>';
-        } else {
-            echo 'Error creating DATABASE: '.$this->useConn->getconn()->error;
-        }
-        $this->useConn->getconn()->close();
+
+
+
+        $this->useConn->getconn()->prepare( 'CREATE Database gh_less4 CHARACTER SET utf8 COLLATE utf8_general_ci')->execute();
+
+        //$this->conn = new \PDO('mysql:host=localhost;dbname=' . $dbname , $username, $password);
 
 
 
 
 
         //new Conector use param database $dbname
-        $this->useConn = new Connector();
 
-        $sql = 'CREATE TABLE Univer (
+        $this->useConn = new Connector();
+        $this->useConn->getconn()->prepare('CREATE TABLE Univer (
 UniverId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 nameUniver VARCHAR(30) NOT NULL,
 cityUniver VARCHAR(30) NOT NULL,
-siteUniver VARCHAR(50)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci';
+siteUniver VARCHAR(50)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci')->execute();
 
-        if ($this->useConn->getconn()->query($sql) === true) {
-            echo 'Table Univer created successfully<br>';
-        } else {
-            echo 'Error creating table: '.$this->useConn->getconn()->error;
-        }
 
-        $sql = 'CREATE TABLE Department (
+
+        $this->useConn->getconn()->prepare('CREATE TABLE Department (
 DepartmentId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 nameDepartmen VARCHAR(30) NOT NULL,
 DepartUniverId INT(6) REFERENCES Univer(UniverId)  ON DELETE CASCADE
-)';
+)')->execute();
 
-        if ($this->useConn->getconn()->query($sql) === true) {
-            echo 'Table Department created successfully <br>';
-        } else {
-            echo 'Error creating table: '.$this->useConn->getconn()->error;
-        }
 
-        $sql = 'CREATE TABLE Student (
+        $this->useConn->getconn()->prepare('CREATE TABLE Student (
 StudentId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 firstNameStudent VARCHAR(30) NOT NULL,
 lastNameStudent VARCHAR(30) NOT NULL,
 emailStudent VARCHAR(30) NOT NULL,
 telStudents VARCHAR(30) NOT NULL,
 studentDepartmentId INT(6) REFERENCES Department(DepartmentId)  ON DELETE CASCADE
-)';
+)')->execute();
 
-        if ($this->useConn->getconn()->query($sql) === true) {
-            echo 'Table Student created successfully <br>';
-        } else {
-            echo 'Error creating table: '.$this->useConn->getconn()->error;
-        }
 
-        $sql = 'CREATE TABLE Teacher (
+
+        $this->useConn->getconn()->prepare('CREATE TABLE Teacher (
 TeacherId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 firstNameTeacher VARCHAR(30) NOT NULL,
 lastNameTeacher VARCHAR(30) NOT NULL,
 teacherDepartmentId INT(6) REFERENCES Department(DepartmentId)  ON DELETE CASCADE
-)';
+)')->execute();
 
-        if ($this->useConn->getconn()->query($sql) === true) {
-            echo 'Table Teacher created successfully <br>';
-        } else {
-            echo 'Error creating table: '.$this->useConn->getconn()->error;
-        }
 
-        $sql = 'CREATE TABLE Discipline (
+
+        $this->useConn->getconn()->prepare('CREATE TABLE Discipline (
 DisciplineId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 nameDisciplin VARCHAR(30) NOT NULL,
 DisciplinDepartmentId INT(6) REFERENCES Department(DepartmentId)  ON DELETE CASCADE
-)';
+)')->execute();
 
-        if ($this->useConn->getconn()->query($sql) === true) {
-            echo 'Table Disciplin created successfully <br>';
-        } else {
-            echo 'Error creating table: '.$this->useConn->getconn()->error;
-        }
 
-        $sql = 'CREATE TABLE HomeWork (
+        $this->useConn->getconn()->prepare('CREATE TABLE HomeWork (
 HomeWorkId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 nameHomeWork VARCHAR(30) NOT NULL,
-HomeWorkDisciplineId INT(6) REFERENCES Discipline(DisciplineId)  ON DELETE CASCADE,
-passedHomeWork BOOLEAN NOT NULL
-)';
+HomeWorkDisciplineId INT(6) REFERENCES Discipline(DisciplineId)  ON DELETE CASCADE
+)')->execute();
 
-        if ($this->useConn->getconn()->query($sql) === true) {
-            echo 'Table HemeWork created successfully <br>';
-        } else {
-            echo 'Error creating table: '.$this->useConn->getconn()->error;
-        }
 
-        $this->useConn->getconn()->close();
     }
 }

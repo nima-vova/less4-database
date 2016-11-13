@@ -5,48 +5,42 @@ namespace Repositories;
 class SelectClassChengCafedr
 {
     public $useConn;
-    public function __construct($StudentId, $firstNameStudent, $lastNameStudent, $emailStudent, $telStudents, $studentDepartmentId, $chengStudent)
+    public function __construct($DepartmentId, $nameDepartmen, $DepartUniverId, $chengDepart)
     {
         echo $DepartmentId;
         $this->useConn= new Connector();
 
 
 
-        if ($chengStudent=="редагувати") {
-            $sql = "UPDATE Student SET firstNameStudent='$firstNameStudent', lastNameStudent='$lastNameStudent', emailStudent='$emailStudent', telStudents='$telStudents', studentDepartmentId='$studentDepartmentId' WHERE StudentId='$StudentId'";
+        if ($chengDepart=="редагувати") {
+           /* $sql = "UPDATE Department SET nameDepartmen='$nameDepartmen', DepartUniverId='$DepartUniverId' WHERE DepartmentId='$DepartmentId'";
             if ($this->useConn->getconn()->query($sql) === true) {
-                echo 'Table Student update  successfully<br>';
+                echo 'Table Department update  successfully<br>';
             } else {
                 echo 'Error Student update table: ' . $this->useConn->getconn()->error;
             }
 
             $this->useConn->getconn()->close();
+           */
+            $this->useConn->getconn()->exec("UPDATE Department SET nameDepartmen='$nameDepartmen', DepartUniverId='$DepartUniverId' WHERE DepartmentId='$DepartmentId'");
+
         }
-/*
+
 
         if ($chengDepart=="додати запис") {
 
-            $sql = "INSERT INTO Department (nameDepartmen, DepartUniverId) VALUES ('$nameDepartmen', '$DepartUniverId')";
+            $this->useConn->getconn()->exec("INSERT INTO Department (nameDepartmen, DepartUniverId) VALUES ('$nameDepartmen', '$DepartUniverId')");
 
-            if ($this->useConn->getconn()->query($sql) === true) {
-                echo 'Table Department add one   successfully<br>';
-            } else {
-                echo 'ErrorDepartment add one  ' . $this->useConn->getconn()->error;
-            }
 
-            $this->useConn->getconn()->close();
         }
 
         if($chengDepart=="видалити") {
-            $sql = "DELETE  FROM Department  WHERE DepartmentId='$DepartmentId'";
-            if ($this->useConn->getconn()->query($sql) === true) {
-                echo 'Table Univer delete  successfully<br>';
-            } else {
-                echo 'Error Univer delete table: ' . $conn->error;
+            $this->useConn->getconn()->exec("DELETE  FROM Department  WHERE DepartmentId='$DepartmentId'");
+
             }
 
-            $this->useConn->getconn()->close();
 
-        }*/
+
+
     }
 }

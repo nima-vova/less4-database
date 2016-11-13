@@ -8,7 +8,7 @@ use Repositories\AddClass;
 use Repositories\SelectClass;
 use Repositories\SelectClassCheng;
 use Repositories\SelectClassChengCafedr;
-
+use Repositories\SelectClassChengHomeWork;
 
 class Controller
 {
@@ -21,6 +21,7 @@ class Controller
     public $repositorySelecCafedr;
     public $repositorySelecStud;
     public $repositorySelecHomeWork;
+    public $repositoryChengHomeWork;
 
     public function createBD()
     {
@@ -94,6 +95,15 @@ class Controller
 
     public function funcFrontSeleсHomeWork()
     {
+        $this->repositorySelecHomeWork = new  SelectClass();
+        $this->repositorySelecHomeWork->funcSelectHomeWork();
+    }
+    public function chengHomeWork()
+    {
+
+        $this->repositoryChengHomeWork = new  SelectClassChengHomeWork($_GET['HomeWorkId'], $_GET['nameHomeWork'], $_GET['HomeWorkDisciplineId'],
+             $_GET['chengHomeWork']);
+
         $this->repositorySelecHomeWork = new  SelectClass();
         $this->repositorySelecHomeWork->funcSelectHomeWork();
     }

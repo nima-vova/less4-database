@@ -14,10 +14,9 @@ class SelectClass
         $sql = 'SELECT * FROM Univer';
 
         $result = $this->useConn->getconn()->query($sql);
-           // $row = $result->fetch_array(MYSQLI_NUM);
-           // echo  $row[2];
+        //$result->setFetchMode(PDO::FETCH_ASSOC);
        echo '<table>';
-        while ($row = $result->fetch_row()) {
+        while ($row = $result->fetch()) {
             echo "<form  method='get' action='index.php' ><tr><td><input maxlength=\"5\" size=\"5\" value='$row[0]' name='idUniv'></td><td><input maxlength=\"30\" size=\"30\" value=\"$row[1] \" name='nameUniv'></td>
                     <td><input maxlength=\"30\" size=\"30\" value=\"$row[2] \" name='nameCity'></td>
                     <td><input maxlength=\"30\" size=\"30\" value=\"$row[3] \" name='nameSite'></td>     
@@ -36,7 +35,6 @@ class SelectClass
 
         echo '</table>';
 
-        $this->useConn->getconn()->close();
     }
     public function funcSelectCafedr()
     {
@@ -50,7 +48,7 @@ class SelectClass
         // echo  $row[2];
 
 
-        while ($row = $result->fetch_row()) {
+        while ($row = $result->fetch()) {
             echo "<form  method='get' action='index.php' ><tr><td><input maxlength=\"5\" size=\"5\" value='$row[0]' name='DepartmentId'></td><td><input maxlength=\"30\" size=\"30\" value=\"$row[1] \" name='nameDepartmen'></td>
                     <td><input maxlength=\"30\" size=\"30\" value=\"$row[2] \" name='DepartUniverId'></td>                    
                     <td><input type=\"submit\" value='редагувати' name='chengDepart'></td>
@@ -72,7 +70,7 @@ class SelectClass
         /* while ($row = $result->fetch_row()) {
             echo $row[0], $row[1], $row[2].'<br>';
         }*/
-        $this->useConn->getconn()->close();
+        //$this->useConn->getconn()->close();
     }
 
     public function funcSelectStudent()
@@ -90,7 +88,7 @@ class SelectClass
 
 
 
-        while ($row = $result->fetch_row()) {
+        while ($row = $result->fetch()) {
             echo "<form  method='get' action='index.php' ><tr><td><input maxlength=\"5\" size=\"5\" value='$row[0]' name='StudentId'></td><td><input maxlength=\"30\" size=\"30\" value=\"$row[1] \" name='firstNameStudent'></td>
                     <td><input maxlength=\"30\" size=\"30\" value=\"$row[2] \" name='lastNameStudent'></td>
                     <td><input maxlength='30' size='30' value='$row[3]' name='emailStudent'></td>   
@@ -113,7 +111,7 @@ class SelectClass
 
         echo '</table>';
 
-        $this->useConn->getconn()->close();
+       // $this->useConn->getconn()->close();
 
 
 
@@ -140,12 +138,29 @@ class SelectClass
         $sql = 'SELECT * FROM HomeWork';
 
         $result = $this->useConn->getconn()->query($sql);
-        // $row = $result->fetch_array(MYSQLI_NUM);
-        // echo  $row[2];
 
-        while ($row = $result->fetch_row()) {
-            echo $row[0], $row[1], $row[2].'<br>';
-        }
-        $this->useConn->getconn()->close();
+
+        //while ($row = $result->fetch()) {
+          //  echo $row[0], $row[1], $row[2].'<br>';
+        //}
+       // $this->useConn->getconn()->close();
+        while ($row = $result->fetch()) {
+        echo "<form  method='get' action='index.php' ><tr><td><input maxlength=\"5\" size=\"5\" value='$row[0]' name='HomeWorkId'></td><td><input maxlength=\"30\" size=\"30\" value=\"$row[1] \" name='nameHomeWork'></td>
+                    <td><input maxlength=\"30\" size=\"30\" value=\"$row[2] \" name='HomeWorkDisciplineId'></td> 
+                                       
+                    <td><input type=\"submit\" value='редагувати' name='chengHomeWork'></td>
+                    <td><input type='submit' value='видалити' name='chengHomeWork'></td></tr></form> ";
+        //echo $row[0], $row[1], $row[2], $row[3]  ."<br>";
+    }
+echo '</table>';
+echo '<table>';
+echo "<form  method='get' action='index.php' ><tr>
+                    <td><input maxlength='5' size='5' value='null' name='HomeWorkId'></td>
+                    <td></td><td><input maxlength=\"30\" size=\"30\" value=\" \"name='nameHomeWork'></td>
+                    <td><input maxlength=\"30\" size=\"30\" value=\" \" name='HomeWorkDisciplineId'></td>
+                    
+                    <td><input type='submit' value='додати запис' name='chengHomeWork'></td></tr></form>>";
+
+
     }
 }

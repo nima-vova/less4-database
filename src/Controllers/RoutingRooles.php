@@ -97,6 +97,21 @@ class RoutingRooles
 
         }
 
+        if (isset($_GET['chengHomeWork'])){
 
+            //index.php?idUniv=13&nameUniv=ЧДБК+&nameCity=Черкаси+&nameSite=www.cdbk.ua+&cheng=редагувати
+
+            //echo "ddffdf";
+            $router = new Router();
+            $router->add('GET /controller/:name', function () {
+            });
+            $route = $router->find('GET /controller/chengHomeWork');
+
+            $conntrollerAdd = new Controller();
+            $param = $route->params['name'];
+
+            $conntrollerAdd->$param();
+
+        }
     }
 }
