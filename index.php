@@ -18,4 +18,6 @@ echo "<a href='?SelecCafedr'>кафедры</a><br>";
 echo "<a href='?SeleсStud'>студенты</a><br>";
 
 echo "<a href='?SeleсHomeWork'>список дз</a><br>";
+
+echo "<a href='?FindStudent'>поиск студентов по имени</a><br>";
 $RoutingRoot= new \Controllers\RoutingRooles();

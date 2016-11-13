@@ -9,6 +9,7 @@ use Repositories\SelectClass;
 use Repositories\SelectClassCheng;
 use Repositories\SelectClassChengCafedr;
 use Repositories\SelectClassChengHomeWork;
+use Repositories\FindStudentOfUniver;
 
 class Controller
 {
@@ -22,6 +23,7 @@ class Controller
     public $repositorySelecStud;
     public $repositorySelecHomeWork;
     public $repositoryChengHomeWork;
+    public $repositoryFindStudent;
 
     public function createBD()
     {
@@ -106,5 +108,13 @@ class Controller
 
         $this->repositorySelecHomeWork = new  SelectClass();
         $this->repositorySelecHomeWork->funcSelectHomeWork();
+    }
+
+    public function FindStudent()
+    {
+
+        $this->repositoryFindStudent = new  FindStudentOfUniver();
+
+
     }
 }

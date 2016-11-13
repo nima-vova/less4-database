@@ -113,5 +113,22 @@ class RoutingRooles
             $conntrollerAdd->$param();
 
         }
+
+        if (isset($_GET['FindStudent'])){
+
+            //index.php?idUniv=13&nameUniv=ЧДБК+&nameCity=Черкаси+&nameSite=www.cdbk.ua+&cheng=редагувати
+
+            //echo "ddffdf";
+            $router = new Router();
+            $router->add('GET /controller/:name', function () {
+            });
+            $route = $router->find('GET /controller/FindStudent');
+
+            $conntrollerAdd = new Controller();
+            $param = $route->params['name'];
+
+            $conntrollerAdd->$param();
+
+        }
     }
 }
